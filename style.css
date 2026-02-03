@@ -60,36 +60,3 @@ body {
 .matched {
   visibility: hidden;
 }
-
-.final {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.final img {
-  width: 260px;
-  animation: zoom 1.5s ease forwards;
-}
-
-@keyframes zoom {
-  from {
-    transform: scale(0.3);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.final h1 {
-  color: white;
-  margin-top: 20px;
-  font-size: 34px;
-}
