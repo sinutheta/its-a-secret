@@ -12,35 +12,25 @@ const heartShape = [
   0,0,0,0,1,0,0,0,0
 ]
 
-const CENTER_INDEX = 40
-
 const images = Array.from(
-  { length: 22 },
-  (_, i) => `images/image${i + 1}.jpeg`
+  { length: 27 },
+  (_, i) => `images/image.${i + 1}.jpeg`
 )
 
 let flipped = []
 let lock = false
 
 function init() {
-  const values = new Array(heartShape.length).fill(null)
-
-  const positions = heartShape
-    .map((v, i) => v === 1 && i !== CENTER_INDEX ? i : null)
-    .filter(i => i !== null)
-
-  positions.sort(() => Math.random() - 0.5)
-
+  const values = []
   images.forEach(img => {
-    const a = positions.pop()
-    const b = positions.pop()
-    values[a] = img
-    values[b] = img
+    values.push(img, img)
   })
 
-  values[CENTER_INDEX] = "HEART"
+  values.sort(() => Math.random() - 0.5)
 
-  heartShape.forEach((cell, i) => {
+  let index = 0
+
+  heartShape.forEach(cell => {
     if (cell === 0) {
       const empty = document.createElement("div")
       empty.className = "empty"
@@ -48,16 +38,12 @@ function init() {
     } else {
       const card = document.createElement("div")
       card.className = "card"
-      card.dataset.value = values[i]
+      card.dataset.value = values[index++]
 
       card.innerHTML = `
         <div class="face front"></div>
         <div class="face back">
-          ${
-            values[i] === "HEART"
-              ? `<div style="font-size:32px;display:flex;align-items:center;justify-content:center;height:100%">💖</div>`
-              : `<img src="${values[i]}">`
-          }
+          <img src="${card.dataset.value}">
         </div>
       `
 
@@ -75,9 +61,6 @@ function flip(card) {
   ) return
 
   card.classList.add("flip")
-
-  if (card.dataset.value === "HEART") return
-
   flipped.push(card)
 
   if (flipped.length === 2) checkMatch()
@@ -104,6 +87,11 @@ function checkMatch() {
 
 function reset() {
   flipped = []
+  lock = false
+}
+
+init()
+
   lock = false
 }
 
