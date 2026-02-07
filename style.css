@@ -73,3 +73,19 @@ body {
   opacity: 0.9;
   pointer-events: none;
 }
+.next-btn {
+  position: absolute;
+  right: 60px;
+  bottom: 110px; 
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.next-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
