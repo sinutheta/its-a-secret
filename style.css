@@ -32,6 +32,10 @@ body {
   transform-style: preserve-3d;
   transition: transform 0.6s;
   cursor: pointer;
+  box-shadow:
+    0 4px 12px rgba(255, 77, 109, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35);
+    border-radius: 16px;
 }
 
 .card.flip {
@@ -47,7 +51,7 @@ body {
 }
 
 .front {
-  background: #ff4d6d;
+  background: linear-gradient(145deg, #ff6f91, #ff3b6f);
 }
 
 .back {
