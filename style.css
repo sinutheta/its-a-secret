@@ -51,8 +51,9 @@ body {
 }
 
 .front {
-  background: linear-gradient(145deg, #ff6f91, #ff3b6f);
+  background: linear-gradient(145deg, #ff3b5c, #b1123a);
 }
+
 
 .back {
   background: white;
