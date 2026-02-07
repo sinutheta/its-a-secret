@@ -82,3 +82,77 @@ body {
   opacity: 0.9;
   pointer-events: none;
 }
+.page2 {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1200px circle at 20% 10%, #ff4d6d 0%, transparent 30%),
+    radial-gradient(1000px circle at 80% 20%, #ff758f 0%, transparent 35%),
+    radial-gradient(900px circle at 50% 80%, #7a001f 0%, #000000 45%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+  z-index: 20;
+}
+
+.page2.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.page2-box {
+  text-align: center;
+  color: white;
+  animation: fadeUp 1.3s ease forwards;
+}
+
+.page2-box h1 {
+  font-size: 56px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.page2-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.page2-buttons button {
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.yes-btn {
+  background: white;
+  color: #c9184a;
+}
+
+.no-btn {
+  background: #ffd6dd;
+  color: #a4133c;
+}
+
+.asking-img {
+  width: 260px;
+  border-radius: 16px;
+  margin-top: 10px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
