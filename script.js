@@ -38,12 +38,16 @@ function init() {
     } else {
       const card = document.createElement("div")
       card.className = "card"
-      card.dataset.value = values[index++]
+
+      const value = values[index % values.length]
+      index++
+
+      card.dataset.value = value
 
       card.innerHTML = `
         <div class="face front"></div>
         <div class="face back">
-          <img src="${card.dataset.value}">
+          <img src="${value}">
         </div>
       `
 
