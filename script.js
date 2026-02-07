@@ -1,5 +1,4 @@
 const board = document.getElementById("board")
-const nextBtn = document.getElementById("nextBtn")
 
 const heartShape = [
   0,0,1,1,0,1,1,0,0,
@@ -76,7 +75,6 @@ function checkMatch() {
       a.classList.add("matched")
       b.classList.add("matched")
       reset()
-      checkWin()
     }, 600)
   } else {
     setTimeout(() => {
@@ -91,18 +89,5 @@ function reset() {
   flipped = []
   lock = false
 }
-
-function checkWin() {
-  const remaining = document.querySelectorAll(".card:not(.matched)")
-  if (remaining.length === 0) {
-    setTimeout(() => {
-      nextBtn.classList.add("show")
-    }, 600)
-  }
-}
-
-nextBtn.addEventListener("click", () => {
-  alert("Next page coming soon 💖")
-})
 
 init()
