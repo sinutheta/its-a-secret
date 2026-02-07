@@ -19,6 +19,8 @@ const images = Array.from(
 
 let flipped = []
 let lock = false
+let matchedPairs = 0
+const totalPairs = images.length
 
 function init() {
   const values = []
@@ -78,7 +80,12 @@ function checkMatch() {
     setTimeout(() => {
       a.classList.add("matched")
       b.classList.add("matched")
+      matchedPairs++
       reset()
+
+      if (matchedPairs === totalPairs) {
+        showPage2()
+      }
     }, 600)
   } else {
     setTimeout(() => {
@@ -92,6 +99,13 @@ function checkMatch() {
 function reset() {
   flipped = []
   lock = false
+}
+
+function showPage2() {
+  const page2 = document.getElementById("page2")
+  if (page2) {
+    page2.classList.add("show")
+  }
 }
 
 init()
