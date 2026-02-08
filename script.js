@@ -57,9 +57,13 @@ function init() {
       card.addEventListener("click", () => flip(card))
       board.appendChild(card)
     }
-  })   if (DEV_MODE) {
-    setTimeout(showpage2, 300)
+  })  function showpage2() {
+  const page2 = document.getElementById("page2")
+  if (page2) {
+    page2.classList.add("show")
   }
+}
+
 
 }
 
