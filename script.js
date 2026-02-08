@@ -202,10 +202,23 @@ if (submitBtn) {
 
     window.open(formURL, "_blank")
 
-    alert("Date booked successfully 💕")
+    alert("Date booked successfully, please click continue")
   })
 }
 
+const goPage5 = document.getElementById("goPage5")
+const page4 = document.getElementById("page4")
+const page5 = document.getElementById("page5")
+
+if (goPage5) {
+  goPage5.addEventListener("click", () => {
+    page4.classList.remove("show")
+
+    setTimeout(() => {
+      page5.classList.add("show")
+    }, 600)
+  })
+}
 
 
 
