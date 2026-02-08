@@ -120,7 +120,7 @@ body {
   color: white;
   letter-spacing: 4px;
   text-transform: uppercase;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 
@@ -223,7 +223,7 @@ body {
 .page3-title .serif {
   display: block;
   font-family: 'Playfair Display SC', serif;
-  font-size: 36px;
+  font-size: 25px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
