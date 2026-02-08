@@ -206,6 +206,16 @@ if (submitBtn) {
   })
 }
 
+const finalContinue = document.querySelector(".final-continue")
+const page4 = document.getElementById("page4")
+const page5 = document.getElementById("page5")
+
+if (finalContinue) {
+  finalContinue.addEventListener("click", () => {
+    if (page4) page4.classList.remove("show")
+    if (page5) page5.classList.add("show")
+  })
+}
 
 
 
