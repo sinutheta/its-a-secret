@@ -107,31 +107,53 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.querySelector(".no-btn")
   if (!noBtn) return
 
-  let offsetX = 0
-  let offsetY = 0
+  let currentX = 0
+  let currentY = 0
+  let isMoving = false
 
   document.addEventListener("mousemove", (e) => {
+    if (isMoving) return
+
     const rect = noBtn.getBoundingClientRect()
+    const btnX = rect.left + rect.width / 2
+    const btnY = rect.top + rect.height / 2
 
-    const btnCenterX = rect.left + rect.width / 2
-    const btnCenterY = rect.top + rect.height / 2
-
-    const dx = e.clientX - btnCenterX
-    const dy = e.clientY - btnCenterY
-
+    const dx = e.clientX - btnX
+    const dy = e.clientY - btnY
     const distance = Math.sqrt(dx * dx + dy * dy)
 
-    const TRIGGER_DISTANCE = 120
+    const TRIGGER_DISTANCE = 140
 
     if (distance < TRIGGER_DISTANCE) {
+      isMoving = true
+
       const angle = Math.atan2(dy, dx)
 
-      const MOVE_DISTANCE = 80
+      const moveDistance =
+        300 + Math.random() * 150
 
-      offsetX = -Math.cos(angle) * MOVE_DISTANCE
-      offsetY = -Math.sin(angle) * MOVE_DISTANCE
+      let newX =
+        currentX - Math.cos(angle) * moveDistance
+      let newY =
+        currentY - Math.sin(angle) * moveDistance
 
-      noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`
+      const maxX =
+        window.innerWidth - rect.width - 20
+      const maxY =
+        window.innerHeight - rect.height - 20
+
+      newX = Math.min(Math.max(newX, -btnX + 20), maxX - btnX)
+      newY = Math.min(Math.max(newY, -btnY + 20), maxY - btnY)
+
+      currentX = newX
+      currentY = newY
+
+      noBtn.style.transform =
+        `translate(${currentX}px, ${currentY}px)`
+
+      setTimeout(() => {
+        isMoving = false
+      }, 350)
     }
   })
 
