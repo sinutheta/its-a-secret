@@ -97,11 +97,18 @@ function reset() {
 }
 
 function showPage2() {
+  const page1 = document.getElementById("page1")
   const page2 = document.getElementById("page2")
-  if (page2) {
-    page2.classList.add("show")
+
+  if (page1 && page2) {
+    page1.classList.remove("show")
+
+    setTimeout(() => {
+      page2.classList.add("show")
+    }, 600)
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.querySelector(".no-btn")
