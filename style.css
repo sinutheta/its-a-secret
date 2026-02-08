@@ -138,10 +138,9 @@ body {
 .no-btn {
   background: #ffd6dd;
   color: #a4133c;
-  position: fixed;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  transition: transform 0.35s ease-out;
   will-change: transform;
-
 }
 
 
