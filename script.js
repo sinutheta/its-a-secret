@@ -1,35 +1,23 @@
 const board = document.getElementById("board")
 
 window.addEventListener("load", () => {
-  document.getElementById("page2")?.style.display = "none"
-  document.getElementById("page3")?.style.display = "none"
-  document.getElementById("page4")?.style.display = "none"
-  document.getElementById("page5")?.style.display = "none"
+  document.getElementById("page2").style.display = "none"
+  document.getElementById("page3").style.display = "none"
+  document.getElementById("page4").style.display = "none"
+  document.getElementById("page5").style.display = "none"
 })
 
-const heartShape = [
-  0,0,1,1,0
-]
+const heartShape = [0, 0, 1, 1, 0]
 
-const images = Array.from(
-  { length: 1 },
-  (_, i) => `images/image.${i + 1}.jpeg`
-)
+const images = [`images/image.1.jpeg`]
 
 let flipped = []
 let lock = false
 let matchedPairs = 0
 const totalPairs = heartShape.filter(v => v === 1).length / 2
 
-
 function init() {
-  const values = []
-  images.forEach(img => {
-    values.push(img, img)
-  })
-
-  values.sort(() => Math.random() - 0.5)
-
+  const values = [...images, ...images].sort(() => Math.random() - 0.5)
   let index = 0
 
   heartShape.forEach(cell => {
@@ -40,36 +28,25 @@ function init() {
     } else {
       const card = document.createElement("div")
       card.className = "card"
-
-      const value = values[index % values.length]
-      index++
+      const value = values[index++ % values.length]
 
       card.dataset.value = value
-
       card.innerHTML = `
         <div class="face front"></div>
         <div class="face back">
           <img src="${value}">
         </div>
       `
-
-      card.addEventListener("click", () => flip(card))
+      card.onclick = () => flip(card)
       board.appendChild(card)
     }
-  }) 
-
+  })
 }
 
 function flip(card) {
-  if (
-    lock ||
-    card.classList.contains("flip") ||
-    card.classList.contains("matched")
-  ) return
-
+  if (lock || card.classList.contains("flip") || card.classList.contains("matched")) return
   card.classList.add("flip")
   flipped.push(card)
-
   if (flipped.length === 2) checkMatch()
 }
 
@@ -85,7 +62,8 @@ function checkMatch() {
       reset()
 
       if (matchedPairs === totalPairs) {
-        showPage2()
+        document.getElementById("page1").style.display = "none"
+        document.getElementById("page2").style.display = "flex"
       }
     }, 600)
   } else {
@@ -102,130 +80,44 @@ function reset() {
   lock = false
 }
 
-function showPage2() {
-  const page1 = document.getElementById("page1")
-  const page2 = document.getElementById("page2")
-
-  if (page1 && page2) {
-    page1.classList.remove("show")
-
-    setTimeout(() => {
-      page2.classList.add("show")
-    }, 600)
-  }
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const noBtn = document.querySelector(".no-btn")
-  if (!noBtn) return
-
-  let offsetX = 0
-  let offsetY = 0
-
-  document.addEventListener("mousemove", (e) => {
+/* NO BUTTON RUN AWAY */
+const noBtn = document.querySelector(".no-btn")
+if (noBtn) {
+  document.addEventListener("mousemove", e => {
     const rect = noBtn.getBoundingClientRect()
+    const dx = e.clientX - (rect.left + rect.width / 2)
+    const dy = e.clientY - (rect.top + rect.height / 2)
+    const dist = Math.sqrt(dx * dx + dy * dy)
 
-    const btnCenterX = rect.left + rect.width / 2
-    const btnCenterY = rect.top + rect.height / 2
-
-    const dx = e.clientX - btnCenterX
-    const dy = e.clientY - btnCenterY
-
-    const distance = Math.sqrt(dx * dx + dy * dy)
-
-    const TRIGGER_DISTANCE = 120
-
-    if (distance < TRIGGER_DISTANCE) {
+    if (dist < 120) {
       const angle = Math.atan2(dy, dx)
-
-      const MOVE_DISTANCE = 80
-
-      offsetX = -Math.cos(angle) * MOVE_DISTANCE
-      offsetY = -Math.sin(angle) * MOVE_DISTANCE
-
-      noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`
+      noBtn.style.transform = `translate(${-Math.cos(angle) * 100}px, ${-Math.sin(angle) * 100}px)`
     }
   })
+}
 
-  noBtn.addEventListener("click", (e) => {
-    e.preventDefault()
-  })
+/* PAGE 2 → 3 */
+document.querySelector(".yes-btn")?.addEventListener("click", () => {
+  document.getElementById("page2").style.display = "none"
+  document.getElementById("page3").style.display = "flex"
 })
-const yesBtn = document.querySelector(".yes-btn")
-const page2 = document.getElementById("page2")
-const page3 = document.getElementById("page3")
 
-if (yesBtn) {
-  yesBtn.addEventListener("click", () => {
-    page2.classList.remove("show")
+/* PAGE 3 → 4 */
+document.querySelector(".continue-btn")?.addEventListener("click", () => {
+  document.getElementById("page3").style.display = "none"
+  document.getElementById("page4").style.display = "flex"
+})
 
-    setTimeout(() => {
-      page3.classList.add("show")
-    }, 600)
-  })
-}
-const continueBtn = document.querySelector(".continue-btn")
-const page4 = document.getElementById("page4")
+/* SUBMIT FORM */
+document.getElementById("submitPlan")?.addEventListener("click", () => {
+  alert("Date booked successfully 💖 Please click continue")
+})
 
-if (continueBtn) {
-  continueBtn.addEventListener("click", () => {
-    page3.classList.remove("show")
-
-    setTimeout(() => {
-      page4.classList.add("show")
-    }, 600)
-  })
-}
-const submitBtn = document.getElementById("submitPlan")
-
-function getSelectedFood() {
-  const selected = document.querySelector(".food-section .food-card input:checked")
-  return selected ? selected.parentElement.querySelector("span").innerText : ""
-}
-
-function getSelectedDessert() {
-  const selected = document.querySelector(".dessert-section .food-card input:checked")
-  return selected ? selected.parentElement.querySelector("span").innerText : ""
-}
-
-if (submitBtn) {
-  submitBtn.addEventListener("click", () => {
-    const date = document.getElementById("dateInput").value
-    const food = getSelectedFood()
-    const dessert = getSelectedDessert()
-
-    if (!date || !food || !dessert) {
-      alert("Please select date, food and dessert 💗")
-      return
-    }
-
-    const formURL =
-      "https://docs.google.com/forms/d/e/1FAIpQLSf0ZB2NGLFcPLHyhxZtdA-q-ccXYW7oB43NDaLqAMyQk4ugog/viewform?usp=publish-editor" +
-      `&entry.1334736218=${encodeURIComponent(date)}` +
-      `&entry.498855871=${encodeURIComponent(food)}` +
-      `&entry.1764313974=${encodeURIComponent(dessert)}`
-
-    window.open(formURL, "_blank")
-
-    alert("Date booked successfully, please click continue")
-  })
-}
-
-const finalContinue = document.querySelector(".final-continue")
-
-if (finalContinue) {
-  finalContinue.addEventListener("click", () => {
-    document.getElementById("page4").style.display = "none"
-    document.getElementById("page5").style.display = "flex"
-  })
-}
-
-
-
-
-
-
-
+/* PAGE 4 → 5 */
+document.querySelector(".final-continue")?.addEventListener("click", () => {
+  document.getElementById("page4").style.display = "none"
+  document.getElementById("page5").style.display = "flex"
+})
 
 init()
+
