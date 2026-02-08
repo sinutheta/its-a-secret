@@ -1,5 +1,4 @@
 const board = document.getElementById("board")
-const DEV_MODE = true
 
 const heartShape = [
   0,0,1,1,0,1,1,0,0,
@@ -57,12 +56,7 @@ function init() {
       card.addEventListener("click", () => flip(card))
       board.appendChild(card)
     }
-  })  function showpage2() {
-  const page2 = document.getElementById("page2")
-  if (page2) {
-    page2.classList.add("show")
-  }
-}
+  }) 
 
 
 }
