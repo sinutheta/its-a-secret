@@ -1,19 +1,27 @@
 const board = document.getElementById("board")
 
-
 const heartShape = [
-  0,0,1,1,0
+  0,0,1,1,0,1,1,0,0,
+  0,1,1,1,1,1,1,1,0,
+  1,1,1,1,1,1,1,1,1,
+  1,1,1,1,1,1,1,1,1,
+  1,1,1,1,1,1,1,1,1,
+  0,1,1,1,1,1,1,1,0,
+  0,0,1,1,1,1,1,0,0,
+  0,0,0,1,1,1,0,0,0,
+  0,0,0,0,1,0,0,0,0
 ]
 
+
 const images = Array.from(
-  { length: 1 },
+  { length: 27 },
   (_, i) => `images/image.${i + 1}.jpeg`
 )
 
 let flipped = []
 let lock = false
 let matchedPairs = 0
-const totalPairs = heartShape.filter(v => v === 1).length / 2
+const totalPairs = images.length
 
 
 function init() {
