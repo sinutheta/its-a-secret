@@ -1,11 +1,5 @@
 const board = document.getElementById("board")
 
-window.addEventListener("load", () => {
-  ["page2", "page3", "page4", "page5"].forEach(id => {
-    const el = document.getElementById(id)
-    if (el) el.style.display = "none"
-  })
-})
 
 const heartShape = [
   0,0,1,1,0
@@ -212,15 +206,7 @@ if (submitBtn) {
   })
 }
 
-const finalContinue = document.querySelector(".final-continue")
-
-if (finalContinue) {
-  finalContinue.addEventListener("click", () => {
-document.getElementById("page4").style.display = "none"
-document.getElementById("page5").style.display = "flex"
-document.getElementById("page1").style.display = "block"
-
-  })
+})
 }
 
 
