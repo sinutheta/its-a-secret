@@ -58,7 +58,7 @@ function init() {
       board.appendChild(card)
     }
   })   if (DEV_MODE) {
-    setTimeout(showPage2, 300)
+    setTimeout(showpage2, 300)
   }
 
 }
