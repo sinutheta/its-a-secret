@@ -271,11 +271,14 @@ body {
     radial-gradient(900px circle at 50% 80%, #7a001f 0%, #000000 45%);
   display: flex;
   justify-content: center;
-  align-items: center;
   opacity: 0;
   pointer-events: none;
   transition: opacity 1.2s ease;
   z-index: 40;
+  align-items: flex-start;
+  overflow-y: auto;
+  padding: 60px 0;
+
 }
 
 .page4.show {
