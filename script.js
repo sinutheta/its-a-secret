@@ -152,19 +152,7 @@ if (yesBtn) {
     }, 600)
   })
 }
-const continueBtn = document.querySelector(".continue-btn")
-const page3 = document.getElementById("page3")
-const page4 = document.getElementById("page4")
 
-if (continueBtn) {
-  continueBtn.addEventListener("click", () => {
-    page3.classList.remove("show")
-
-    setTimeout(() => {
-      page4.classList.add("show")
-    }, 600)
-  })
-}
 
 
 
