@@ -109,5 +109,27 @@ function showPage2() {
     page2.classList.add("show")
   }
 }
+const noBtn = document.querySelector(".no-btn")
+
+if (noBtn) {
+  noBtn.addEventListener("mouseenter", moveNoButton)
+  noBtn.addEventListener("click", moveNoButton)
+}
+
+function moveNoButton() {
+  const btn = noBtn
+  const padding = 20
+
+  const maxX = window.innerWidth - btn.offsetWidth - padding
+  const maxY = window.innerHeight - btn.offsetHeight - padding
+
+  const x = Math.random() * maxX
+  const y = Math.random() * maxY
+
+  btn.style.position = "fixed"
+  btn.style.left = `${x}px`
+  btn.style.top = `${y}px`
+}
+
 
 init()
