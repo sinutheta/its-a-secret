@@ -205,6 +205,17 @@ if (submitBtn) {
     alert("Date booked successfully, please click continue")
   })
 }
+const finalContinue = document.querySelector(".final-continue")
+
+if (finalContinue) {
+  finalContinue.addEventListener("click", () => {
+    const page4 = document.getElementById("page4")
+    const page5 = document.getElementById("page5")
+
+    if (page4) page4.style.display = "none"
+    if (page5) page5.style.display = "flex"
+  })
+}
 
 
 init()
