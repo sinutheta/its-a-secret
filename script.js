@@ -105,25 +105,39 @@ function showPage2() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.querySelector(".no-btn")
-
   if (!noBtn) return
 
-  noBtn.addEventListener("mouseenter", moveNoButton)
-  noBtn.addEventListener("click", moveNoButton)
+  let offsetX = 0
+  let offsetY = 0
 
-  function moveNoButton() {
-    const padding = 20
+  document.addEventListener("mousemove", (e) => {
+    const rect = noBtn.getBoundingClientRect()
 
-    const maxX = window.innerWidth - noBtn.offsetWidth - padding
-    const maxY = window.innerHeight - noBtn.offsetHeight - padding
+    const btnCenterX = rect.left + rect.width / 2
+    const btnCenterY = rect.top + rect.height / 2
 
-    const x = Math.random() * maxX
-    const y = Math.random() * maxY
+    const dx = e.clientX - btnCenterX
+    const dy = e.clientY - btnCenterY
 
-    noBtn.style.position = "fixed"
-    noBtn.style.left = `${x}px`
-    noBtn.style.top = `${y}px`
-  }
+    const distance = Math.sqrt(dx * dx + dy * dy)
+
+    const TRIGGER_DISTANCE = 120
+
+    if (distance < TRIGGER_DISTANCE) {
+      const angle = Math.atan2(dy, dx)
+
+      const MOVE_DISTANCE = 80
+
+      offsetX = -Math.cos(angle) * MOVE_DISTANCE
+      offsetY = -Math.sin(angle) * MOVE_DISTANCE
+
+      noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`
+    }
+  })
+
+  noBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+  })
 })
 
 
