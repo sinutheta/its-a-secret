@@ -171,6 +171,13 @@ if (continueBtn) {
     }, 600)
   })
 }
+const submitBtn = document.getElementById("submitPlan")
+
+if (submitBtn) {
+  submitBtn.addEventListener("click", () => {
+    alert("Submit button works 💖")
+  })
+}
 
 
 
