@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   height: 100vh;
@@ -97,6 +98,16 @@ body {
   transition: opacity 1.2s ease;
   z-index: 20;
 }
+.page2-box h1 {
+  font-family: 'Playfair Display SC', serif;
+  font-size: 64px;
+  color: white;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
 
 .page2.show {
   opacity: 1;
