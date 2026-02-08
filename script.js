@@ -139,6 +139,19 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault()
   })
 })
+const yesBtn = document.querySelector(".yes-btn")
+const page2 = document.getElementById("page2")
+const page3 = document.getElementById("page3")
+
+if (yesBtn) {
+  yesBtn.addEventListener("click", () => {
+    page2.classList.remove("show")
+
+    setTimeout(() => {
+      page3.classList.add("show")
+    }, 600)
+  })
+}
 
 
 init()
