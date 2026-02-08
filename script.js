@@ -2,15 +2,7 @@ const board = document.getElementById("board")
 
 
 const heartShape = [
-  0,0,1,1,0,1,1,0,0,
-  0,1,1,1,1,1,1,1,0,
-  1,1,1,1,1,1,1,1,1,
-  1,1,1,1,1,1,1,1,1,
-  1,1,1,1,1,1,1,1,1,
-  0,1,1,1,1,1,1,1,0,
-  0,0,1,1,1,1,1,0,0,
-  0,0,0,1,1,1,0,0,0,
-  0,0,0,0,1,0,0,0,0
+  0,0,1,1,0
 ]
 
 const images = Array.from(
@@ -109,27 +101,30 @@ function showPage2() {
     page2.classList.add("show")
   }
 }
-const noBtn = document.querySelector(".no-btn")
 
-if (noBtn) {
+document.addEventListener("DOMContentLoaded", () => {
+  const noBtn = document.querySelector(".no-btn")
+
+  if (!noBtn) return
+
   noBtn.addEventListener("mouseenter", moveNoButton)
   noBtn.addEventListener("click", moveNoButton)
-}
 
-function moveNoButton() {
-  const btn = noBtn
-  const padding = 20
+  function moveNoButton() {
+    const padding = 20
 
-  const maxX = window.innerWidth - btn.offsetWidth - padding
-  const maxY = window.innerHeight - btn.offsetHeight - padding
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding
 
-  const x = Math.random() * maxX
-  const y = Math.random() * maxY
+    const x = Math.random() * maxX
+    const y = Math.random() * maxY
 
-  btn.style.position = "fixed"
-  btn.style.left = `${x}px`
-  btn.style.top = `${y}px`
-}
+    noBtn.style.position = "fixed"
+    noBtn.style.left = `${x}px`
+    noBtn.style.top = `${y}px`
+  }
+})
+
 
 
 init()
