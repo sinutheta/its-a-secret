@@ -254,3 +254,83 @@ body {
     transform: translateY(0);
   }
 }
+.page4 {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1200px circle at 20% 10%, #ff4d6d 0%, transparent 30%),
+    radial-gradient(1000px circle at 80% 20%, #ff758f 0%, transparent 35%),
+    radial-gradient(900px circle at 50% 80%, #7a001f 0%, #000000 45%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+  z-index: 40;
+}
+
+.page4.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.page4-box {
+  text-align: center;
+  color: white;
+  padding: 0 30px;
+  animation: fadeUp 1.3s ease forwards;
+}
+
+.page4-title {
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.page4-title .script {
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.page4-title .serif {
+  display: block;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 36px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.date-picker {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-picker input[type="date"] {
+  padding: 14px 18px;
+  font-size: 16px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  background: #ffe5ec;
+  color: #7a001f;
+}
+
+.submit-date {
+  padding: 14px 26px;
+  font-size: 16px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: #ff4d6d;
+  color: white;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.submit-date:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.35);
+}
