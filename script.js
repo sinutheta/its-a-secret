@@ -59,7 +59,7 @@ function init() {
     }
   })   if (FORCE_COMPLETE) {
     matchedPairs = totalPairs
-    setTimeout(showpage2, 300)
+    setTimeout(page2, 300)
   }
 
 
