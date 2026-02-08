@@ -195,7 +195,7 @@ if (submitBtn) {
     }
 
     const formURL =
-      "https://docs.google.com/forms/d/e/1FAIpQLSf0ZB2NGLFcPLHyhxZtdA-q-ccXYW7oB43NDaLqAMyQk4ugog/viewform?usp=pp_url" +
+      "https://docs.google.com/forms/d/e/1FAIpQLSf0ZB2NGLFcPLHyhxZtdA-q-ccXYW7oB43NDaLqAMyQk4ugog/viewform?usp=publish-editor" +
       `&entry.1334736218=${encodeURIComponent(date)}` +
       `&entry.498855871=${encodeURIComponent(food)}` +
       `&entry.1764313974=${encodeURIComponent(dessert)}`
