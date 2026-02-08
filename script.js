@@ -1,5 +1,5 @@
 const board = document.getElementById("board")
-const FORCE_COMPLETE = true
+
 
 const heartShape = [
   0,0,1,1,0,1,1,0,0,
@@ -57,12 +57,7 @@ function init() {
       card.addEventListener("click", () => flip(card))
       board.appendChild(card)
     }
-  })   if (FORCE_COMPLETE) {
-    matchedPairs = totalPairs
-    setTimeout(page2, 300)
-  }
-
-
+  }) 
 
 }
 
