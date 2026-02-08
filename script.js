@@ -13,7 +13,8 @@ const images = Array.from(
 let flipped = []
 let lock = false
 let matchedPairs = 0
-const totalPairs = images.length
+const totalPairs = heartShape.filter(v => v === 1).length / 2
+
 
 function init() {
   const values = []
