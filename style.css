@@ -447,7 +447,7 @@ body {
 
 .page5-title {
   font-family: 'Playfair Display SC', serif;
-  font-size: 32px;
+  font-size: 28px;
   color: white;
   margin-bottom: 30px;
   line-height: 1.2;
@@ -459,8 +459,8 @@ body {
   width: auto;
   height: auto;
   display: block;
-  margin: 0 auto;
   object-fit: contain;
+  margin-bottom: 40px;
 }
 
 
