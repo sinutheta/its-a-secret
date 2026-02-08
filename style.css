@@ -342,6 +342,56 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(255, 77, 109, 0.35);
 }
+.food-section {
+  margin-top: 80px;
+}
+
+.food-title {
+  font-size: 34px;
+  color: #ff8fa3;
+  margin-bottom: 40px;
+}
+
+.food-options {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.food-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+
+.food-card input {
+  margin-bottom: 12px;
+  accent-color: #ff4d6d;
+}
+
+.food-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ff8fa3;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.food-card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+}
+
+.food-card span {
+  margin-top: 12px;
+  color: #ff8fa3;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
 
 @keyframes fadeUp {
   from {
