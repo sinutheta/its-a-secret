@@ -1,10 +1,10 @@
 const board = document.getElementById("board")
 
 window.addEventListener("load", () => {
-  document.getElementById("page2")?.style.display = "none"
-  document.getElementById("page3")?.style.display = "none"
-  document.getElementById("page4")?.style.display = "none"
-  document.getElementById("page5")?.style.display = "none"
+  ["page2", "page3", "page4", "page5"].forEach(id => {
+    const el = document.getElementById(id)
+    if (el) el.style.display = "none"
+  })
 })
 
 const heartShape = [
@@ -216,8 +216,10 @@ const finalContinue = document.querySelector(".final-continue")
 
 if (finalContinue) {
   finalContinue.addEventListener("click", () => {
-    document.getElementById("page4").style.display = "none"
-    document.getElementById("page5").style.display = "flex"
+document.getElementById("page4").style.display = "none"
+document.getElementById("page5").style.display = "flex"
+document.getElementById("page1").style.display = "block"
+
   })
 }
 
