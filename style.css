@@ -402,6 +402,18 @@ body {
   font-size: 16px;
   letter-spacing: 1px;
 }
+.page2,
+.page3,
+.page4 {
+  display: none;
+}
+.page2.show,
+.page3.show,
+.page4.show {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
 
 @keyframes fadeUp {
   from {
