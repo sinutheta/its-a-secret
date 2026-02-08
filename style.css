@@ -338,6 +338,7 @@ body {
   cursor: pointer;
   background: #ff4d6d;
   color: white;
+  margin-top: 40px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
