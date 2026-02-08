@@ -350,10 +350,16 @@ body {
 }
 
 .food-title {
-  font-size: 34px;
-  color: #ff8fa3;
-  margin-bottom: 40px;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 38px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  margin: 70px 0 40px;
+  opacity: 0.95;
 }
+
 
 .food-options {
   display: flex;
