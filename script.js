@@ -12,7 +12,6 @@ const heartShape = [
   0,0,0,0,1,0,0,0,0
 ] 
 
-
 const images = Array.from(
   { length: 27 },
   (_, i) => `images/image.${i + 1}.jpeg`
